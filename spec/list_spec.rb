@@ -11,20 +11,22 @@ describe List do
     end
 
     it 'shows added item' do
-      subject.add(:item)
-      expect(subject.items).to include :item
+      subject.add(item)
+      expect(subject.items).to include item
     end
 
   end
 
   describe 'Show' do
 
-    it 'be able to view a list' do
+    it 'respond to show method' do
       expect(subject).to respond_to :show
     end
 
+    it 'shows listing' do
+      expect(subject.show).to eq(subject.items)
+    end
+
   end
-
-
 
 end

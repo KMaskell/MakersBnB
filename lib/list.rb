@@ -11,7 +11,7 @@ class List
   end
 
   def show
-
+    @items
   end
 
 end

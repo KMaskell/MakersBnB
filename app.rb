@@ -7,10 +7,29 @@ class MakersBnB < Sinatra::Base
 
   @@list = List.new
 
+
   get '/' do
+    erb :sign_in
+  end
+
+  post '/' do
+    #  check the database for the user (params etc)
+    redirect '/spaces'
+  end
+
+  get '/sign_up' do
+    erb :sign_up
+  end
+
+  post '/sign_up' do
+    # do stuff with database
+    redirect '/spaces'
+  end
+
+  get '/spaces' do
     p @@list
-    @list_of_items = @@list.show 
-    erb :index
+    @list_of_items = @@list.show
+    erb :spaces
   end
 
   get '/add_space' do
@@ -21,14 +40,12 @@ class MakersBnB < Sinatra::Base
    name = params[:name]
    description = params[:description]
    price = params[:price]
-   email_address = params[:email_address]
-   phone_number = params[:phone_number]
-   item = ListItem.new(name, description, price, email_address, phone_number)
+   item = ListItem.new(name, description, price)
    @@list.add(item)
    p @@list
-   redirect "/"
+   redirect "/spaces"
   end
-  
+
   run! if app_file == $0
-  
+
 end

@@ -1,11 +1,10 @@
 class ListItem
-attr_reader :name, :description, :price, :email_address, :phone_number
-def initialize(name, description, price, email_address, phone_number)
+attr_reader :name, :description, :price
+def initialize(name, description, price)
   @name = name
   @description = description
   @price = price
-  @email_address = email_address
-  @phone_number = phone_number
+
 end
 
 end

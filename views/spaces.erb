@@ -1,5 +1,6 @@
 <h1> MakersBnb </h1>
 <h2> The sexiest airBnB on the planet. </h2>
+<h3> Hello user, we think it would be a good idea to put your name here </h3>
 <form action="/add_space" method="get">
     <input type="submit" value="Add a new space! CLick NOWWWW!">
 </form>
@@ -8,9 +9,5 @@
 <h3> <%= item.name %> </h3>
 <p> <%= item.description %> </p>
 <p> £<%= item.price %> / night </p>
-<div>
-    <h5> Contact:</h5>
-    <p> Email: <%= item.email_address %></p>
-    <p> Phone: <%= item.phone_number %></p>
-</div>
+
 <% end %>

@@ -12,19 +12,6 @@ class MakersBnB < Sinatra::Base
     erb :sign_in
   end
 
-  post '/' do
-    #  check the database for the user (params etc)
-    redirect '/spaces'
-  end
-
-  get '/sign_up' do
-    erb :sign_up
-  end
-
-  post '/sign_up' do
-    # do stuff with database
-    redirect '/spaces'
-  end
 
   get '/spaces' do
     p @@list

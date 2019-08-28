@@ -7,11 +7,13 @@ class MakersBnB < Sinatra::Base
 
   @@list = List.new
 
-
   get '/' do
     erb :sign_in
   end
 
+  get '/sign_up' do
+    erb :sign_up
+  end
 
   get '/spaces' do
     p @@list

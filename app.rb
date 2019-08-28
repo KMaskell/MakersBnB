@@ -1,11 +1,10 @@
 require 'sinatra'
 require 'sinatra/base'
-require_relative './lib/list'
-require_relative './lib/list_item'
+require_relative './lib/database_connection'
+require_relative './lib/space'
+require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
-
-  @@list = List.new
 
   get '/' do
     p @@list

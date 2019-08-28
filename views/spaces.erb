@@ -5,9 +5,9 @@
     <input type="submit" value="Add a new space! CLick NOWWWW!">
 </form>
 
-<% @list_of_items.each do |item| %>
-<h3> <%= item.name %> </h3>
-<p> <%= item.description %> </p>
-<p> £<%= item.price %> / night </p>
+<% @spaces.each do |space| %>
+<h3> <%= space.name %> </h3>
+<p> <%= space.description %> </p>
+<p> £<%= space.price %> / night </p>
 
 <% end %>

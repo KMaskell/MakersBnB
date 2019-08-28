@@ -1,14 +1,14 @@
 require 'sinatra'
 require 'sinatra/base'
 require_relative './lib/list'
-require_relative './lib/list_item'
+require_relative './lib/space'
 
 class MakersBnB < Sinatra::Base
 
   @@list = List.new
 
   get '/' do
-    erb :sign_in
+    erb :log_in
   end
 
   get '/sign_up' do
@@ -16,8 +16,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/spaces' do
-    p @@list
-    @list_of_items = @@list.show
+    @spaces = Space.all
     erb :spaces
   end
 
@@ -29,9 +28,8 @@ class MakersBnB < Sinatra::Base
    name = params[:name]
    description = params[:description]
    price = params[:price]
-   item = ListItem.new(name, description, price)
+   space = Space.new(name, description, price)
    @@list.add(item)
-   p @@list
    redirect "/spaces"
   end
 

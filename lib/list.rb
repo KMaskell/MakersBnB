@@ -1,6 +1,6 @@
 class List
 
-  attr_reader :items
+  attr_reader :items 
 
   def initialize
     @items = []

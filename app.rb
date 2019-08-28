@@ -2,17 +2,16 @@ require 'sinatra'
 require 'sinatra/base'
 require_relative './lib/list'
 require_relative './lib/space'
+require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
-
-  @@list = List.new
 
   get '/' do
     erb :log_in
   end
 
   post '/' do
-    # connect DB
+    # connect to DB
     redirect '/spaces'
   end
 
@@ -22,6 +21,7 @@ class MakersBnB < Sinatra::Base
 
   post '/sign_up' do
     # connect to DB
+    User.add(username: params[:username], password: params[:password], email: params[:email])
     redirect '/spaces'
   end
 
@@ -35,11 +35,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add_space' do
-   name = params[:name]
-   description = params[:description]
-   price = params[:price]
-   space = Space.new(name, description, price)
-   @@list.add(item)
+   # shall we add username to below params?
+   Space.add(name: params[:name], description: params[:description], price: params[:price], username: params[:username])
    redirect "/spaces"
   end
 

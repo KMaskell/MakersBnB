@@ -11,8 +11,18 @@ class MakersBnB < Sinatra::Base
     erb :log_in
   end
 
+  post '/spaces' do
+    # connect DB
+    redirect '/spaces'
+  end
+
   get '/sign_up' do
     erb :sign_up
+  end
+
+  post '/sign_up' do
+    # connect to DB
+    redirect '/spaces'
   end
 
   get '/spaces' do

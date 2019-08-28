@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/base'
 require_relative './lib/list'
 require_relative './lib/space'
-require_relative './lib/user'
+#require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
 
@@ -35,7 +35,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add_space' do
-   # shall we add username to below params?
+   # correct username syntax? (not a param)
    Space.add(name: params[:name], description: params[:description], price: params[:price], username: params[:username])
    redirect "/spaces"
   end

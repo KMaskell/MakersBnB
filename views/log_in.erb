@@ -1,25 +1,25 @@
-<h1> Welcome to MakersBnB </h1>
+<h1> Welcome to MakersBnB! </h1>
 
 
 <div>
-<h3> Not signed up yet? Sign up here <h3> 
+<h2> No account yet? Sign up here <h2> 
 <form action="/sign_up" method="get">
   <button name="/sign_up" type="submit" value="Sign up"> Sign up</button>
 </form>
 </div>
 
-<h2> To view spaces, please login below </h2>
+<h2> To view and add spaces, login here... </h2>
 
 <form action="/" method="post">
 
   <div>
-      <label for="name"> Email address </label>
-      <input type="email" name="name" id="email">
+      <label class="email" for="name"> Email:</label>
+      <input class="email_field" type="email" name="name" id="email">
   </div>
-
+  <br>
   <div>
-      <label for="password">Password</label>
+      <label for="password">Password:</label>
       <input type="text" name="password" id="password">
   </div>
-
+  <br>
   <input type="submit" value="Login" id="log_in">

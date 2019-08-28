@@ -4,15 +4,12 @@ require_relative './lib/list'
 require_relative './lib/list_item'
 
 class MakersBnB < Sinatra::Base
-  enable :sessions
 
   @@list = List.new
 
   get '/' do
-    session[:list] = @@list
-    p session[:list]
     p @@list
-    @list_of_items = session[:list].show 
+    @list_of_items = @@list.show 
     erb :index
   end
 
@@ -27,7 +24,8 @@ class MakersBnB < Sinatra::Base
    email_address = params[:email_address]
    phone_number = params[:phone_number]
    item = ListItem.new(name, description, price, email_address, phone_number)
-   session[:list].add(item)
+   @@list.add(item)
+   p @@list
    redirect "/"
   end
   

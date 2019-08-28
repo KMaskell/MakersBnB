@@ -1,9 +1,12 @@
 require 'sinatra'
 require 'sinatra/base'
+require_relative './lib/list'
+require_relative './lib/list_item'
 
 class MakersBnB < Sinatra::Base
   enable :sessions
   session[:list] = List.new
+
   get '/' do
     @list_of_items = session[:list].show 
     erb :index

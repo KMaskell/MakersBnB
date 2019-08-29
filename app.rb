@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './lib/database_connection'
 require_relative './lib/space'
 require_relative './lib/user'
@@ -52,7 +53,6 @@ class MakersBnB < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    flash[:notice] = "Goodbye!! See you again soon"
     redirect "/"
   end
 

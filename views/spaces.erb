@@ -1,17 +1,22 @@
-<form action="/sessions/destroy" method="post">
-<input type="submit" value="Logout" id="log_out">
-</form>
+<% if @user %>
+    <form action="/sessions/destroy" method="post">
+        <input type="submit" value="Logout" id="log_out">
+    </form>
+<% end %>
+
 <h1> MakersBnb </h1>
 <h2> The sexiest airBnB on the planet. </h2>
+
 <% if @user %>
     <h3> Hi <%= @user.username %>, welcome to MakersBnB </h3>
     <form action="/my_spaces" method='get'>
         <input type="submit" value="My spaces" id="my_spaces">
     </form>
+    <form action="/add_space" method="get">
+        <input type="submit" value="Add a new space! Click NOWWWW!" id="add_space">
+    </form>
 <% end %>
-<form action="/add_space" method="get">
-    <input type="submit" value="Add a new space! Click NOWWWW!" id="add_space">
-</form>
+
 
 <% @spaces.each do |space| %>
 <% user = User.find(space.user_id)%>

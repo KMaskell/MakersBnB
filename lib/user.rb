@@ -50,6 +50,20 @@ class User
     ).to_a
     query.empty? ? false : query.first['id'].to_i
   end
+
+  def spaces
+    spaces = []
+    result = DatabaseConnection.query("SELECT * FROM spaces WHERE user_id = #{@id};").to_a
+    result.each do |row|
+      id = row['id']
+      name = row['name']
+      description = row['description']
+      price = row['price']
+      user_id = row['user_id']
+      spaces << Space.new(id, name, description, price, user_id)
+    end
+    spaces
+  end
   
 end
 

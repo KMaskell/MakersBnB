@@ -33,7 +33,18 @@ As a user
 So that I can rent my property  
 I want to be able to list my property  
 
+### Database setup
 
+Make sure you're in the MakersBnB directory. Then type in:
+
+```bash
+# Create the databases
+createdb makersbnb
+createdb makersbnb_test
+
+# Run a script to create tables
+ruby db/create_tables.rb
+```
 
 
 

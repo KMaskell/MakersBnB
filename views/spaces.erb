@@ -1,8 +1,8 @@
 <h1> MakersBnb </h1>
 <h2> The sexiest airBnB on the planet. </h2>
-<h3> Hello user, we think it would be a good idea to put your name here </h3>
+<h3> Hi <%= @user.username %>, welcome to MakersBnB </h3>
 <form action="/add_space" method="get">
-    <input type="submit" value="Add a new space! CLick NOWWWW!">
+    <input type="submit" value="Add a new space! Click NOWWWW!">
 </form>
 
 <% @spaces.each do |space| %>

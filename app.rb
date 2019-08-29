@@ -22,7 +22,8 @@ class MakersBnB < Sinatra::Base
 
   post '/sign_up' do
     # connect to DB
-    User.add(username: params[:username], password: params[:password], email: params[:email])
+    @user = User.add(username: params[:username], password: params[:password], email: params[:email])
+    session[:username] = @user.username
     redirect '/spaces'
   end
 

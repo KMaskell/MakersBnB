@@ -15,7 +15,6 @@ class MakersBnB < Sinatra::Base
 
   post '/log_in' do
   login_id = User.log_in(params[:email], params[:password])
-  p login_id
     if login_id
       session[:user_id] = login_id
       session[:login_fail] = false
@@ -49,6 +48,12 @@ class MakersBnB < Sinatra::Base
   post '/add_space' do
    Space.add(params[:name], params[:description], params[:price], session[:user_id])
    redirect "/spaces"
+  end
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = "Goodbye!! See you again soon"
+    redirect "/"
   end
 
   run! if app_file == $0

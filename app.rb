@@ -8,12 +8,20 @@ class MakersBnB < Sinatra::Base
   enable :sessions
 
   get '/' do
+    @fail = session[:login_fail]
     erb :log_in
   end
 
-  post '/' do
-    # connect to DB
-    redirect '/spaces'
+  post '/log_in' do
+  login_id = User.log_in(password: params[:password], email: params[:email])
+    if login_id
+      session[:user_id] = login_id
+      session[:login_fail] = false
+      redirect '/spaces'
+    else
+      session[:login_fail] = true
+      redirect '/'
+    end
   end
 
   get '/sign_up' do
@@ -21,9 +29,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/sign_up' do
-    # connect to DB
-    @user = User.add(username: params[:username], password: params[:password], email: params[:email])
-    session[:username] = @user.username
+    User.add(username: params[:username], password: params[:password], email: params[:email])
     redirect '/spaces'
   end
 
@@ -37,7 +43,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/add_space' do
-   Space.add(name: params[:name], description: params[:description], price: params[:price], session[:user].id)
+   Space.add(name: params[:name], description: params[:description], price: params[:price], user_id: session[:user_id])
    redirect "/spaces"
   end
 

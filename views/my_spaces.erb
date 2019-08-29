@@ -1,0 +1,9 @@
+<h1>Here is the list of your spaces</h1>
+
+<% @user.spaces.each do |space| %>
+  <% user = User.find(space.user_id)%>
+  <h3> <%= space.name %> </h3>
+  <p> <%= space.description %> </p>
+  <p> £<%= space.price %> / night </p>
+  <% end %>
+  

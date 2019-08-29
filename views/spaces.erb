@@ -5,9 +5,12 @@
 <h2> The sexiest airBnB on the planet. </h2>
 <% if @user %>
     <h3> Hi <%= @user.username %>, welcome to MakersBnB </h3>
+    <form action="/my_spaces" method='get'>
+        <input type="submit" value="My spaces" id="my_spaces">
+    </form>
 <% end %>
 <form action="/add_space" method="get">
-    <input type="submit" value="Add a new space! Click NOWWWW!">
+    <input type="submit" value="Add a new space! Click NOWWWW!" id="add_space">
 </form>
 
 <% @spaces.each do |space| %>
@@ -17,5 +20,4 @@
 <p> £<%= space.price %> / night </p>
 <p>Posted by: <strong><%= user.username %></strong></p>
 <p> <em>Contact: <%= user.email %></em> </p>
-
 <% end %>

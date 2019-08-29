@@ -56,6 +56,11 @@ class MakersBnB < Sinatra::Base
     redirect "/"
   end
 
+  get '/my_spaces' do
+    @user = User.find(session[:user_id])
+    erb :my_spaces
+  end
+
   run! if app_file == $0
 
 end

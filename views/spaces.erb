@@ -1,13 +1,18 @@
 <h1> MakersBnb </h1>
 <h2> The sexiest airBnB on the planet. </h2>
-<h3> Hi <%= @user.username %>, welcome to MakersBnB </h3>
+<% if @user %>
+    <h3> Hi <%= @user.username %>, welcome to MakersBnB </h3>
+<% end %>
 <form action="/add_space" method="get">
     <input type="submit" value="Add a new space! Click NOWWWW!">
 </form>
 
 <% @spaces.each do |space| %>
+<% user = User.find(space.user_id)%>
 <h3> <%= space.name %> </h3>
 <p> <%= space.description %> </p>
 <p> £<%= space.price %> / night </p>
+<p>Posted by: <strong><%= user.username %></strong></p>
+<p> <em>Contact: <%= user.email %></em> </p>
 
 <% end %>

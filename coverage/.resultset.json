@@ -1,6 +1,31 @@
 {
   "RSpec": {
     "coverage": {
+      "/home/guillaume/Makers/week6/MakersBnB/spec/feature/registration_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
       "/home/guillaume/Makers/week6/MakersBnB/spec/unit/space_spec.rb": [
         1,
         null,
@@ -40,6 +65,6 @@
         null
       ]
     },
-    "timestamp": 1567067930
+    "timestamp": 1567079574
   }
 }

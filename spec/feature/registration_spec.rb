@@ -11,7 +11,7 @@ feature 'registration' do
   end
 
   scenario 'a user with an account can login' do
-    User.add(username: 'Kat', password: 'puzzle1', email: 'vampirebatkat@gmail.com')
+    User.add('Kat', 'puzzle1', 'vampirebatkat@gmail.com')
     visit('/')
     fill_in('email', with: 'vampirebatkat@gmail.com')
     fill_in('password', with: 'puzzle1')

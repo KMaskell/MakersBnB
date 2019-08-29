@@ -1,5 +1,7 @@
 class User
 
+  attr_reader :id, :username, :email
+
   def initialize(id, name, password, email)
     @id = id
     @username = name
@@ -42,7 +44,7 @@ class User
     User.new(id, username, password, email)
   end
 
-  def self.login(email, password)
+  def self.log_in(email, password)
     query = DatabaseConnection.query(
       "SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}';"
     ).to_a

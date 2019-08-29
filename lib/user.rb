@@ -41,6 +41,13 @@ class User
     email = row['email']
     User.new(id, username, password, email)
   end
+
+  def self.login(email, password)
+    query = DatabaseConnection.query(
+      "SELECT * FROM users WHERE email = '#{email}' AND password = '#{password}';"
+    ).to_a
+    query.empty? ? false : query.first['id'].to_i
+  end
   
 end
 

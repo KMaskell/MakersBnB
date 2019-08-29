@@ -5,6 +5,9 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+ENV['ENVIRONMENT'] = 'test'
+require_relative '../lib/database_connection'
+require_relative './helpers/setup_tables'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,

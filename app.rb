@@ -1,12 +1,13 @@
 require 'sinatra'
 require 'sinatra/base'
+require_relative './lib/database_connection'
 require_relative './lib/space'
-#require_relative './lib/user'
+require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
 
   enable :sessions
-
+  
   get '/' do
     @fail = session[:login_fail]
     erb :log_in

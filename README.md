@@ -31,7 +31,15 @@ I want to be able to sign up
 
 As a user  
 So that I can rent my property  
-I want to be able to list my property  
+I want to be able to list my property 
+
+As a potential tenant  
+So that I can plan my holidays  
+I want to see what dates spaces are available  
+
+As a owner  
+So that I can change the detail  
+I can update my space details.  
 
 ### Database setup
 
@@ -45,6 +53,7 @@ createdb makersbnb_test
 # Run a script to create tables
 ruby db/create_tables.rb
 ```
+
 
 
 

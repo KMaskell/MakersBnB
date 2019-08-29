@@ -1,5 +1,11 @@
-def create_tables
-  
+require_relative '../lib/database_connection'
+
+databases = ['makersbnb', 'makersbnb_test']
+
+databases.each do |db|
+
+  DatabaseConnection.setup(db)
+
   DatabaseConnection.query("create table users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(60),
@@ -13,11 +19,6 @@ def create_tables
     price integer,
     user_id integer REFERENCES users(id));")
 
-end
-
-def drop_tables
-  
-  DatabaseConnection.query("DROP TABLE spaces;")
-  DatabaseConnection.query("DROP TABLE users;")
+    puts "Tables 'users' and 'spaces' created in #{db}"
 
 end

@@ -5,7 +5,8 @@ describe User do
   let(:user) { double("user", name: "Kenny", password: "KillMe", email: "kenny@southp.us") }
 
   before do
-    setup_tables
+    drop_tables
+    create_tables
   end
   
   describe '::add' do

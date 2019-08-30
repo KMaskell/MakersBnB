@@ -66,14 +66,14 @@ class MakersBnB < Sinatra::Base
     redirect "/my_spaces"
   end
 
-  patch '/my_spaces' do
-    #this is the route to modify existing space
+  patch '/my_spaces/:space' do
+    # route to modify existing space, User.edit(:space)?
     redirect '/my_spaces'
   end
 
-  get '/my_spaces/:edit_space' do
-    #User.edit(:space) this si a route to new edit_space view
-    erb :'my_spaces/edit_space'
+  get '/my_spaces/:space/edit_space' do
+    # route to new edit_space view, space.find(:id: params[:user_id])?
+    erb :edit_space
   end
 
   run! if app_file == $0

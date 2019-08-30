@@ -7,7 +7,7 @@ require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
   
   get '/' do
     @fail = session[:login_fail]
@@ -61,6 +61,25 @@ class MakersBnB < Sinatra::Base
     erb :my_spaces
   end
 
+  delete '/my_spaces/:id' do
+    Space.find(params[:id]).delete 
+    redirect "/my_spaces"
+  end
+
+  patch '/my_spaces/:id' do
+    
+    Space.find(params[:id]).update(name: params[:name], description: params[:description],price: params[:price])
+    redirect '/my_spaces'
+  end
+
+  get '/my_spaces/:id/edit_space' do
+   
+    @id = params[:id]
+    @space = Space.find(params[:id])
+    erb :edit_space
+  end
+
   run! if app_file == $0
 
 end
+         

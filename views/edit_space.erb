@@ -1,0 +1,19 @@
+<form action="/my_spaces/<%= @id %>" method="post">
+<input type="hidden" name="_method" value="PATCH" />
+  <div>
+  <label for="name">What's your space called?</label>
+    <input type="text" name="name" id="space_name" value="<%= @space.name %>">
+</div>
+
+<div>
+    <label for="description">What's your space like?</label>
+    <textarea name="description" id="space_description" cols="30" rows="10" value="<%=@space.description%>"></textarea>
+</div>
+
+<div>
+    <label for="price"> What's your space cost?</label>
+    <input type="text" name="price" id="space_price" value="<%= @space.price %>" >
+</div>
+      <input type="submit" value="Edit" id="post_space"/>
+  </div>
+</form>

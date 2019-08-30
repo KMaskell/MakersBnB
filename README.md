@@ -41,6 +41,15 @@ As a owner
 So that I can change the detail  
 I can update my space details.  
 
+As a owner 
+So that I can delete my spaces
+I want to be able to delete a space
+
+As a owner
+So that I can update my space
+I want to be able to edit a space
+
+
 ### Database setup
 
 Make sure you're in the MakersBnB directory. Then type in:

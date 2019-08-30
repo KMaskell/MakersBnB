@@ -7,20 +7,23 @@
 </form>
 
 <h1>Here is the list of your spaces</h1>
+<ul>
+  <% @user.spaces.each do |space| %>
+    <li class="space">
+      <h3> <%= space.name %> </h3>
+      <p> <%= space.description %> </p>
+      <p> £<%= space.price %> / night </p>
 
-<% @user.spaces.each do |space| %>
-  <% user = User.find(space.user_id)%>
-  <h3> <%= space.name %> </h3>
-  <p> <%= space.description %> </p>
-  <p> £<%= space.price %> / night </p>
-  <% end %>require 'space'
+      <form action="/my_spaces/<%= space.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
 
-describe Space do
+      
+      <form action='/my_spaces/<%= space.id %>/edit_space' method="get">
+        <input type="submit" value="Edit" />
+      </form> 
+    </li>
+  <% end %>
 
-  subject { Space.new(1, "House", "Beautiful place", 30, 1)}
-  it 'responds to name, description, price, email, phone' do
-    expect(subject).to respond_to(:id, :name, :description, :price, :user_id)
-  end
-  
-end
-  
+</ul>

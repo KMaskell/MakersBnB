@@ -29,7 +29,7 @@ scenario "A space can be deleted by the owner" do
  
   expect(page).to have_content "Jodis house"
 
-  first('space').click_button 'Delete'
+  first('.space').click_button 'Delete'
 
   expect(current_path).to eq '/my_spaces'
   expect(page).not_to have_content('jodis house')
@@ -50,7 +50,7 @@ scenario 'A user can update a space' do
  
   expect(page).to have_content "Jodis house"
 
-  first('space').click_button 'Edit'
+  first('.space').click_button 'Edit'
   fill_in("space_name", with: "Jodis house")
   fill_in("space_description", with: "This a okay house, you will survive it")
   fill_in("space_price", with: 200)

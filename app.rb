@@ -71,7 +71,7 @@ class MakersBnB < Sinatra::Base
     redirect '/my_spaces'
   end
 
-  get '/my_spaces/:edit_space' do
+  get '/my_spaces/:space/edit_space' do
     # route to new edit_space view, space.find(:id: params[:user_id])?
     erb :edit_space
   end

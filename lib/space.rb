@@ -32,5 +32,32 @@ class Space
       VALUES('#{name}', '#{description}', '#{price}', '#{user_id}');"
     )
   end
+
+  def self.find(id)
+    query = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE (id = #{id})"
+    ).to_a
+  
+    raise "Could not find this space" if query.empty?
+    
+    space = query.first
+
+    id = space["id"].to_i
+    name = space['name']
+    description = space['description']
+    price = space['price'].to_i
+    user_id = space['user_id'].to_i
+
+    return Space.new(id, name, description, price, user_id)
+
+  end 
+
+  def delete
+    
+    DatabaseConnection.query(
+      "DELETE FROM spaces WHERE id = #{@id}"
+    )
+    
+  end
   
 end

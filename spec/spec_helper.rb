@@ -1,13 +1,17 @@
-require_relative '../app'
-require 'capybara'
-require 'capybara/rspec'
 require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
+require 'capybara'
+require 'capybara/rspec'
 
 ENV['ENVIRONMENT'] = 'test'
 require_relative '../lib/database_connection'
 require_relative './helpers/setup_tables'
+
+# Requiring model
+
+require_relative '../lib/user'
+require_relative '../lib/space'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
@@ -29,6 +33,17 @@ RSpec.configure do |config|
     # ...rather than:
     #     # => "be bigger than 2"
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+
+    # Clean and reset database, then seed database
+
+    config.before(:each) do
+      drop_tables
+      create_tables
+      User.add("Guillaume", "chocolate", "gl@gl.com")
+      User.add("Jodi", "vanilla", "jodi@jodi.com")
+      Space.add("Guillaume House", "Guillaume House description", 30, 1)
+      Space.add("Jodi House", "Jodi House description", 40, 2)
+    end
   end
 
   # rspec-mocks config goes here. You can use an alternate test double
@@ -101,5 +116,7 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+require_relative '../app'
 
 Capybara.app = MakersBnB

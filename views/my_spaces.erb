@@ -13,14 +13,15 @@
   <h3> <%= space.name %> </h3>
   <p> <%= space.description %> </p>
   <p> £<%= space.price %> / night </p>
-  <% end %>
   <ul>
-  <form action="/my_spaces<%= @user.delete(space) %>" method="post">
+
+  <form action="/my_spaces<%= space.user_id %>" method="post">
     <input type='hidden' name='_method' value='DELETE'/>
     <input type="submit" value="Delete" />
   </form>
 
-<form action="/my_spaces<%= @user.edit(space) %>" method="post">
-  <input type='hidden' name='_method' value='Edit'/>
-  <input type="submit" value="Edit" />
-</form>
+  <form action="/my_spaces<%= space.user_id %>/edit_space" method="get">
+    <input type="submit" value="Edit" />
+  </form>
+
+<% end %>

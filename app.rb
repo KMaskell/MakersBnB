@@ -62,7 +62,7 @@ class MakersBnB < Sinatra::Base
   end
 
   delete '/my_spaces/:space' do
-    # route to delete space, User.delete(:space)?
+    # route to delete space: @user.delete(space)?
     redirect "/my_spaces"
   end
 

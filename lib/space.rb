@@ -34,10 +34,14 @@ class Space
   end
 
   def self.find(id)
-    space = DatabaseConnection.query(
+    query = DatabaseConnection.query(
       "SELECT * FROM spaces WHERE (id = #{id})"
-    ).to_a.first
+    ).to_a
+  
+    raise "Could not find this space" if query.empty?
     
+    space = query.first
+
     id = space["id"].to_i
     name = space['name']
     description = space['description']
@@ -47,5 +51,13 @@ class Space
     return Space.new(id, name, description, price, user_id)
 
   end 
+
+  def delete
+    
+    DatabaseConnection.query(
+      "DELETE FROM spaces WHERE id = #{@id}"
+    )
+    
+  end
   
 end

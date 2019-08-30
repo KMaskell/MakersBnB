@@ -71,6 +71,8 @@
       ],
       "/home/guillaume/Makers/week6/MakersBnB/spec/feature/logout_spec.rb": [
         1,
+        null,
+        1,
         1,
         1,
         1,
@@ -79,8 +81,8 @@
         1,
         1,
         null,
-        null,
         1,
+        null,
         null,
         null
       ],
@@ -147,6 +149,22 @@
         null,
         null,
         null,
+        1,
+        null,
+        2,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        2,
+        null,
+        null,
         null,
         null,
         null,
@@ -177,6 +195,6 @@
         null
       ]
     },
-    "timestamp": 1567162151
+    "timestamp": 1567163797
   }
 }

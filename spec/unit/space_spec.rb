@@ -16,6 +16,22 @@ describe Space do
 
     end
 
+    it "raises an error if the id doesn't match any space" do
+
+      expect{ Space.find(3) }.to raise_error("Could not find this space")
+
+    end
+
+  end
+
+  describe '#delete' do
+    
+    it 'deletes a space' do
+      space = Space.find(1)
+      space.delete
+      expect{ Space.find(1) }.to raise_error("Could not find this space")
+    end
+    
   end
 
 end

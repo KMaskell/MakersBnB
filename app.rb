@@ -67,13 +67,15 @@ class MakersBnB < Sinatra::Base
   end
 
   patch '/my_spaces/:id' do
-    # route to modify existing space, User.edit(:space)?
-    Space.find(params[:id]).update
+    
+    Space.find(params[:id]).update(name: params[:name], description: params[:description],price: params[:price])
     redirect '/my_spaces'
   end
 
   get '/my_spaces/:id/edit_space' do
-    # route to new edit_space view, space.find(:id: params[:user_id])?
+   
+    @id = params[:id]
+    @space = Space.find(params[:id])
     erb :edit_space
   end
 

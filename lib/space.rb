@@ -59,5 +59,27 @@ class Space
     )
     
   end
-  
+
+  def update(
+    name: @name,
+    description: @description,
+    price: @price)
+
+    set_args = []
+
+    set_args << "name = '#{name}'" if name != @name
+    set_args << "description = '#{description}'" if description != @description 
+    set_args << "price = #{price}" if price != @price
+
+    return if set_args.empty?
+
+    set_string = "SET #{set_args.join(', ')}"
+
+    DatabaseConnection.query(
+      "UPDATE spaces
+      #{set_string}
+      WHERE id = #{@id}"
+    )
+  end
+
 end

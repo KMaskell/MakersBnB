@@ -7,7 +7,7 @@ require_relative './lib/user'
 
 class MakersBnB < Sinatra::Base
 
-  enable :sessions
+  enable :sessions, :method_override
   
   get '/' do
     @fail = session[:login_fail]
@@ -61,6 +61,22 @@ class MakersBnB < Sinatra::Base
     erb :my_spaces
   end
 
+  delete '/my_spaces/:space' do
+    #User.delete(:space) this is for delete button
+    redirect "/my_spaces"
+  end
+
+  patch '/my_spaces' do
+    #this is the route to modify existing space
+    redirect '/my_spaces'
+  end
+
+  get '/my_spaces/:edit_space' do
+    #User.edit(:space) this si a route to new edit_space view
+    erb :'my_spaces/edit_space'
+  end
+
   run! if app_file == $0
 
 end
+         

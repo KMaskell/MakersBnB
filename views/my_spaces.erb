@@ -2,6 +2,10 @@
   <input type="submit" value="Back to All Spaces" id="spaces">
 </form>
 
+<form action="/add_space" method='get'>
+  <input type="submit" value="Add another space" id="add_space">
+</form>
+
 <h1>Here is the list of your spaces</h1>
 
 <% @user.spaces.each do |space| %>

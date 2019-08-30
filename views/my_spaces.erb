@@ -8,21 +8,22 @@
 
 <h1>Here is the list of your spaces</h1>
 <ul>
-<% @user.spaces.each do |space| %>
-<li class="space">
-  <h3> <%= space.name %> </h3>
-  <p> <%= space.description %> </p>
-  <p> £<%= space.price %> / night </p>
-  <form action="/my_spaces/<%= space.id %>" method="post">
-    <input type='hidden' name='_method' value='DELETE'/>
-    <input type="submit" value="Delete" />
-  </form>
+  <% @user.spaces.each do |space| %>
+    <li class="space">
+      <h3> <%= space.name %> </h3>
+      <p> <%= space.description %> </p>
+      <p> £<%= space.price %> / night </p>
 
-  
-  <form action='/my_spaces/<%= space.id %>/edit_space' method="get">
-    <input type="submit" value="Edit" />
-  </form> 
-</li>
-<% end %>
+      <form action="/my_spaces/<%= space.id %>" method="post">
+        <input type='hidden' name='_method' value='DELETE'/>
+        <input type="submit" value="Delete" />
+      </form>
+
+      
+      <form action='/my_spaces/<%= space.id %>/edit_space' method="get">
+        <input type="submit" value="Edit" />
+      </form> 
+    </li>
+  <% end %>
 
 </ul>

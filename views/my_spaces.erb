@@ -14,8 +14,12 @@
   <p> <%= space.description %> </p>
   <p> £<%= space.price %> / night </p>
   <ul>
+<<<<<<< HEAD
 
   <form action="/my_spaces<%= space.user_id %>" method="post">
+=======
+  <form action="/my_spaces/<%= space.id %>" method="post">
+>>>>>>> 1eba41434e8a97c557d8798fe62cb3817ef4cb4e
     <input type='hidden' name='_method' value='DELETE'/>
     <input type="submit" value="Delete" />
   </form>

@@ -34,5 +34,15 @@ describe Space do
     
   end
 
+  describe '#update' do
+    
+    it "updates a space's attributes" do
+      space = Space.find(1)
+      space.update(name: "Guillaume new House")
+      expect(Space.find(1).name).to eq "Guillaume new House"
+    end
+
+  end
+
 end
 

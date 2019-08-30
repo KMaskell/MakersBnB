@@ -32,5 +32,20 @@ class Space
       VALUES('#{name}', '#{description}', '#{price}', '#{user_id}');"
     )
   end
+
+  def self.find(id)
+    space = DatabaseConnection.query(
+      "SELECT * FROM spaces WHERE (id = #{id})"
+    ).to_a.first
+    
+    id = space["id"].to_i
+    name = space['name']
+    description = space['description']
+    price = space['price'].to_i
+    user_id = space['user_id'].to_i
+
+    return Space.new(id, name, description, price, user_id)
+
+  end 
   
 end
